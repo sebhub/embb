@@ -249,11 +249,15 @@ If you want a different installation path, you can change it now by typing
 
 The option "-DINSTALL_PREFIX=YourCustomPath" can also be given in Step 1.
 
-To install the files, use the command
+To install the files, on Linux use the command
 
     cmake --build . --target install
 
-which copies the contents of the "install" folder to the "bin", "lib", and
+and on Windows, for a Release build, use
+
+    cmake --build . --target install --config Release
+    
+This copies the contents of the "install" folder to the "bin", "lib", and
 "include" folders in the installation path. For the default paths, the
 installation has to be run with administrator / root privileges.
 
