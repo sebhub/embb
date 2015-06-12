@@ -249,7 +249,7 @@ If you want a different installation path, you can change it now by typing
 
 The option "-DINSTALL_PREFIX=YourCustomPath" can also be given in Step 1.
 
-To install the files, on Linux use the command
+To install the files on Linux, use the command
 
     cmake --build . --target install
 
