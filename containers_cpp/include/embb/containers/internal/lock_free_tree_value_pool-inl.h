@@ -254,21 +254,20 @@ LockFreeTreeValuePool<Type, Undefined, PoolAllocator, TreeAllocator>::
   size_t tree_size_unsigned = static_cast<size_t>(tree_size);
   size_t real_size_unsigned = static_cast<size_t>(real_size);
 
-  poolAllocator.deallocate(pool, real_size_unsigned);
-
   // invoke destructor for each pool element
   for (size_t i = 0; i != real_size_unsigned; ++i) {
     pool[i].~Atomic();
   }
 
-  treeAllocator.deallocate(tree, tree_size_unsigned);
+  poolAllocator.deallocate(pool, real_size_unsigned);
 
   // invoke destructor for each tree element
   for (size_t i = 0; i != tree_size_unsigned; ++i) {
     tree[i].~Atomic();
   }
-}
 
+  treeAllocator.deallocate(tree, tree_size_unsigned);
+}
 } // namespace containers
 } // namespace embb
 
